@@ -10,5 +10,9 @@ app.use(bodyParser.json())
 app.use('/views', express.static('views'))
 app.use('/images', express.static('images'))
 
+app.get('/', (req, res) => {
+  res.send('Server started.')
+})
+
 const port = process.env.PORT || 4000
 app.listen(port, () => console.log(`Server start >> http://localhost:${port}`))
