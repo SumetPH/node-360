@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A simple example</title>
+	<link rel="stylesheet" href="https://cdn.pannellum.org/2.4/pannellum.css" />
+	<script type="text/javascript" src="https://cdn.pannellum.org/2.4/pannellum.js"></script>
+	<style>
+		#panorama {
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="panorama"></div>
+	<script>
+		pannellum.viewer('panorama', {
+			default: {
+				firstScene: 'Bnk48',
+				author: 'SumetPH',
+				sceneFadeDuration: 1000,
+				autoLoad: true,
+				autoRotate: -2,
+				showZoomCtrl: false
+				// compass: false
+			},
+			scenes: {
+				Bnk48: {
+					title: 'Bnk48',
+					hfov: 110,
+					pitch: 16,
+					yaw: 360,
+					type: 'equirectangular',
+					panorama: `/images/bnk48.jpg`,
+					hotSpots: [
+						{
+							pitch: -31,
+							yaw: 34,
+							type: 'scene',
+							text: 'Mason Circle',
+							sceneId: 'Circle'
+						}
+					]
+				},
+				Circle: {
+					title: 'Mason Circle',
+					hfov: 110,
+					yaw: 5,
+					type: 'equirectangular',
+					panorama: `/images/test.jpeg`,
+					hotSpots: [
+						{
+							pitch: -0.6,
+							yaw: 37.1,
+							type: 'scene',
+							text: 'Bnk48',
+							sceneId: 'Bnk48'
+						}
+					]
+				}
+			}
+		});
+	</script>
+
+</body>
+
+</html>
